@@ -16,12 +16,14 @@ function create_table ( $params ): void {
     echo htmlentities($table);
 
 }
+
 /**
  * Ispisuje zatvarajuci tag </ table >
  */
 function end_table (): void {
     echo htmlentities("</ table >");
 }
+
 /**
  * Generira HTML potreban za stvaranje jednog retka tablice .
  * U polju parametara koje prima moraju biti definirane i
