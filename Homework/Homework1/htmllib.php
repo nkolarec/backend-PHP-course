@@ -4,7 +4,7 @@
  * odredjuje atribute tablice i
  * vrijednosti atributa .
  *
- * @param $params { array } polje parametara spremljenih
+ * @param array $params polje parametara spremljenih
  * po principu ' atribut ' = > ' vrijednost '
  */
 function create_table ( $params ): void {
@@ -20,7 +20,7 @@ function create_table ( $params ): void {
  * Ispisuje zatvarajuci tag </ table >
  */
 function end_table (): void {
-    echo htmlentities("< / table >");
+    echo htmlentities("</ table >");
 }
 /**
  * Generira HTML potreban za stvaranje jednog retka tablice .
@@ -41,25 +41,30 @@ function end_table (): void {
  * parametar contents postavljen na prazan niz znakova ili
  * da uopce nije poslan .
  *
- * @param  $params { array } polje parametara koje odredjuje
+ * @param  array $params polje parametara koje odredjuje
  * jedan redak tablice
  * @return string niz znakova koji predstavlja HTML kod retka tablice
  */
 function create_table_row ( $params ): string {
-    $row = "< tr >\n";
-    foreach ($params as $attribute){
-        if ($attribute === 'contents') {
-            foreach ($params['contents'] as $cell){
+    $contents_flag = false;
+    $row = "< tr";
+    foreach ($params as $attribute => $value){
+        if ($attribute === 'contents' and $value ==! null) {
+            $row .= ">\n";
+            $contents_flag = true;
+            foreach ($value as $cell){
                 $row .= create_table_cell($cell);
             }
         }
         else {
-            $row .= " " . $attribute . "=" . $params[$attribute];
+            $row .= " " . $attribute . "=" . $value;
         }
     }
-    $row .= "< / tr >";
-    return $row;
-
+    if (!$contents_flag){
+        $row .= ">";
+    }
+    $row .= "</ tr >";
+    return htmlentities($row);
 }
 
 /**
@@ -73,13 +78,16 @@ function create_table_row ( $params ): string {
  * nizu znakova , potrebno je generirati praznu celiju :
  * < td atribut1 = " vrijednost1 " ... atributN = " vrijednostN " > </ td >
  *
- * @param $params { array } polje parametara koje odredjuje celiju
+ * @param array $params polje parametara koje odredjuje celiju
  * @return string  niz znakova koji odredjuje HTML kod celije
  */
 function create_table_cell ( $params ): string {
-    $column = "< td >\n";
-    $column .= "< / td >\n";
-    return $column;
+    $cell = "< td";
+    foreach ($params as $attribute => $value){
+        $cell .= " " . $attribute . "=" . $value;
+    }
+    $cell .= ">< / td >";
+    return htmlentities($cell);
 }
 
 /**
@@ -95,12 +103,29 @@ function create_table_cell ( $params ): string {
  * potrebno je ili postaviti parametar ' contents ' na
  * prazan niz znakova ili ga uopce ne poslati .
  *
- * @param $name
- * @param bool $closed
- * @param $params
+ * @param string $name ime elementa
+ * @param bool $closed zastavica za zatvarajuće tagove
+ * @param array $params polje s atributima i vrijednostima elementa
  * @return string niz znakova jednak HTML kodu elementa
  */
 function create_element ( $name , $closed = true , $params ): string {
-     $element = "";
-     return $element;
+    $contents_flag = false;
+    $element = "<". $name;
+    foreach ($params as $attribute => $value){
+        if ($attribute === 'contents'){
+            $contents_flag = true;
+            $element .= ">" . $value;
+        }
+        else {
+            $element .= " " . $attribute . "=" . $value;
+        }
+    }
+    if(!$contents_flag){
+        $element .= ">";
+    }
+    if($closed === true) {
+        $element .= "< \ " . $name . ">";
+    }
+    return htmlentities($element);
 }
+
