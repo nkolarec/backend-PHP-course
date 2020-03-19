@@ -9,8 +9,8 @@
  */
 function create_table ( $params ): void {
     $table = "<table";
-    foreach ($params as $param){
-        $table .= " " .  $param . "=" . $params[$param];
+    foreach ($params as $attribute){
+        $table .= " " .  $attribute . "=" . $params[$attribute];
     }
     $table .= " >";
     echo htmlentities($table);
@@ -47,7 +47,17 @@ function end_table (): void {
  */
 function create_table_row ( $params ): string {
     $row = "< tr >\n";
-    $row .= "< / tr >\n";
+    foreach ($params as $attribute){
+        if ($attribute === 'contents') {
+            foreach ($params['contents'] as $cell){
+                $row .= create_table_cell($cell);
+            }
+        }
+        else {
+            $row .= " " . $attribute . "=" . $params[$attribute];
+        }
+    }
+    $row .= "< / tr >";
     return $row;
 
 }
