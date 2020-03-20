@@ -67,17 +67,21 @@ function pi_approximation(): string {
  * Parametri za komponente stranice
  * */
 $website_name = ['contents' => 'Simple website'];
-$website_body = ['align' => 'center', 'style' => 'background-color:powderblue;'];
-$website_header1 = ['contents' => 'Welcome!'];
-$website_header2 = ['contents' => 'Number pi: '. pi_approximation()];
-$website_header3 = ['align' => 'left', 'contents' => 'First 50 Fibonacci numbers:'];
-$website_header4 = ['align' => 'left', 'contents' => 'First 100 prime numbers: '];
-$website_image1 = [];
-$website_image2 = [];
-$website_link1 = [];
-$website_link2 = [];
-$website_paragraph1 = ['align' => 'left', 'contents' => fibonacci(50)];
-$website_paragraph2 = ['align' => 'left', 'contents' => prime_numbers(100)];
+$website_body = ['align' => 'left', 'style' => 'background-color:powderblue;'];
+$website_header1 = ['align' => 'center', 'contents' => 'Welcome!'];
+$website_header2 = ['align' => 'center', 'contents' => 'Number pi: '. pi_approximation()];
+$website_header3 = ['contents' => 'First 50 Fibonacci numbers:'];
+$website_header4 = ['contents' => 'First 100 prime numbers:'];
+$website_header5 = ['contents' => 'Matrix multiplying:'];
+$website_image =
+    [
+        'src' => 'https://lh3.googleusercontent.com/proxy/R1IYSC58tkZ-L2x4jfTm-QWfkS44SLE5aVtxVByIrHN51lV2CMAtMycHU7U2lKBeEqXmSbq4jaD4oIBbntZXBRvlgkjSqhlkXW3b1A80DgQ',
+        'style' => 'width:600px;height:300px;'
+    ];
+$website_link1 = ['href' => 'https://en.wikipedia.org/wiki/Fibonacci_number', 'contents' => 'Fibonacci number wiki'];
+$website_link2 = ['href' => 'https://en.wikipedia.org/wiki/Prime_number', 'contents' => 'Prime number wiki' ];
+$website_paragraph1 = ['contents' => fibonacci(50)];
+$website_paragraph2 = ['contents' => prime_numbers(100)];
 $website_table = [];
 
 /**
@@ -93,8 +97,12 @@ echo create_element("h1", true, $website_header1);
 echo create_element("h2", true, $website_header2);
 echo create_element("h3", true, $website_header3);
 echo create_element("p", true, $website_paragraph1);
+echo create_element("a", true, $website_link1);
 echo create_element("h4", true, $website_header4);
 echo create_element("p", true, $website_paragraph2);
+echo create_element("a", true, $website_link2);
+echo create_element("h5", true, $website_header5);
+echo create_element("img", true, $website_image);
 end_body();
 end_html();
 
