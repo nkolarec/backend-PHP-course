@@ -1,4 +1,69 @@
 <?php
+
+/**
+ * Uvijek ispisuje sadrzaj " <! doctype html > "
+ * i koristi se kao prva naredba
+ * kod stvaranja dokumenta .
+ */
+function create_doctype (): void {
+    echo "<!DOCTYPE html >";
+}
+
+/**
+ * Ispisuje otvarajuci tag < html >
+ */
+function begin_html (): void {
+    echo " < html >";
+}
+
+/**
+ * Ispisuje zatvarajuci tag </ html >
+ */
+function end_html (): void
+{
+    echo "</ html >";
+}
+
+/**
+ * Ispisuje otvarajuci tag < head >
+ */
+function begin_head (): void {
+    echo "< head >";
+}
+
+/**
+ * Ispisuje zatvarajuci tag </ head >
+ */
+function end_head (): void {
+    echo "</ head >";
+}
+
+/**
+ * Ispisuje otvarajuci tag < body > te mu
+ * pridruzuje parove ( atribut , vrijednost ) na
+ * temelju polja predanih parametara .
+ * Parove ( atribut , vrijednost ) potrebno je umetnuti u
+ * tag na valjan nacin : nazivAtributa = " vrijednostAtributa " .
+ *
+ * @param array $params asocijativno polje
+ * parova atribut = > vrijednost
+ */
+function begin_body ( $params ): void {
+    $body = "< body";
+    foreach ($params as $attribute => $value){
+        $body .= " " .  $attribute . "=" . $value;
+    }
+    $body .= " >";
+    echo $body;
+}
+
+/**
+ * Ispisuje zatvarajuci tag </ body >
+ */
+function end_body (): void {
+    echo "</ body >";
+}
+
 /**
  * Ispisuje otvarajuci tag < table >. Polje parametara
  * odredjuje atribute tablice i
@@ -13,7 +78,7 @@ function create_table ( $params ): void {
         $table .= " " .  $attribute . "=" . $params[$attribute];
     }
     $table .= " >";
-    echo htmlentities($table);
+    echo $table;
 
 }
 
@@ -21,7 +86,7 @@ function create_table ( $params ): void {
  * Ispisuje zatvarajuci tag </ table >
  */
 function end_table (): void {
-    echo htmlentities("</ table >");
+    echo "</ table >";
 }
 
 /**
@@ -52,7 +117,7 @@ function create_table_row ( $params ): string {
     $row = "< tr";
     foreach ($params as $attribute => $value){
         if ($attribute === 'contents' and $value ==! null) {
-            $row .= ">\n";
+            $row .= " >\n";
             $contents_flag = true;
             foreach ($value as $cell){
                 $row .= create_table_cell($cell);
@@ -66,7 +131,7 @@ function create_table_row ( $params ): string {
         $row .= ">";
     }
     $row .= "</ tr >";
-    return htmlentities($row);
+    return $row;
 }
 
 /**
@@ -89,7 +154,7 @@ function create_table_cell ( $params ): string {
         $cell .= " " . $attribute . "=" . $value;
     }
     $cell .= ">< / td >";
-    return htmlentities($cell);
+    return $cell;
 }
 
 /**
@@ -101,13 +166,13 @@ function create_table_cell ( $params ): string {
  * ' atribut2 ' = > ' vrijednost2 ' , ... ,
  * ' atributN ' = > ' vrijednostN ' ).
  * Ako sadrzaj elementa treba biti prazan ili element
- * uopce nije definiran tako da treba imati sadrzaja ,
+ * uopce nije definiran tako da treba imati sadrzja ,
  * potrebno je ili postaviti parametar ' contents ' na
  * prazan niz znakova ili ga uopce ne poslati .
  *
- * @param string $name ime elementa
- * @param bool $closed zastavica za zatvarajuće tagove
- * @param array $params polje s atributima i vrijednostima elementa
+ * @param  string  $name naziv elementa
+ * @param boolean $closed true ako ima zatvarajuci tag , false inace
+ * @param array $params polje parametara koje odredjuje celiju
  * @return string niz znakova jednak HTML kodu elementa
  */
 function create_element ( $name , $closed = true , $params ): string {
@@ -128,6 +193,6 @@ function create_element ( $name , $closed = true , $params ): string {
     if($closed === true) {
         $element .= "< \ " . $name . ">";
     }
-    return htmlentities($element);
+    return $element;
 }
 
