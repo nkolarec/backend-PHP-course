@@ -6,14 +6,14 @@
  * kod stvaranja dokumenta .
  */
 function create_doctype (): void {
-    echo "<!DOCTYPE html >";
+    echo "<!DOCTYPE html>";
 }
 
 /**
  * Ispisuje otvarajuci tag < html >
  */
 function begin_html (): void {
-    echo " < html >";
+    echo "<html>";
 }
 
 /**
@@ -21,21 +21,21 @@ function begin_html (): void {
  */
 function end_html (): void
 {
-    echo "</ html >";
+    echo "</html>";
 }
 
 /**
  * Ispisuje otvarajuci tag < head >
  */
 function begin_head (): void {
-    echo "< head >";
+    echo "<head>";
 }
 
 /**
  * Ispisuje zatvarajuci tag </ head >
  */
 function end_head (): void {
-    echo "</ head >";
+    echo "</head>";
 }
 
 /**
@@ -49,7 +49,7 @@ function end_head (): void {
  * parova atribut = > vrijednost
  */
 function begin_body ( $params ): void {
-    $body = "< body";
+    $body = "<body";
     foreach ($params as $attribute => $value){
         $body .= " " .  $attribute . "=" . $value;
     }
@@ -61,7 +61,7 @@ function begin_body ( $params ): void {
  * Ispisuje zatvarajuci tag </ body >
  */
 function end_body (): void {
-    echo "</ body >";
+    echo "</body>";
 }
 
 /**
@@ -86,7 +86,7 @@ function create_table ( $params ): void {
  * Ispisuje zatvarajuci tag </ table >
  */
 function end_table (): void {
-    echo "</ table >";
+    echo "</table>";
 }
 
 /**
@@ -114,7 +114,7 @@ function end_table (): void {
  */
 function create_table_row ( $params ): string {
     $contents_flag = false;
-    $row = "< tr";
+    $row = "<tr";
     foreach ($params as $attribute => $value){
         if ($attribute === 'contents' and $value ==! null) {
             $row .= " >\n";
@@ -130,7 +130,7 @@ function create_table_row ( $params ): string {
     if (!$contents_flag){
         $row .= ">";
     }
-    $row .= "</ tr >";
+    $row .= "</tr>";
     return $row;
 }
 
@@ -149,11 +149,11 @@ function create_table_row ( $params ): string {
  * @return string  niz znakova koji odredjuje HTML kod celije
  */
 function create_table_cell ( $params ): string {
-    $cell = "< td";
+    $cell = "<td";
     foreach ($params as $attribute => $value){
         $cell .= " " . $attribute . "=" . $value;
     }
-    $cell .= ">< / td >";
+    $cell .= "></td>";
     return $cell;
 }
 
@@ -191,7 +191,7 @@ function create_element ( $name , $closed = true , $params ): string {
         $element .= ">";
     }
     if($closed === true) {
-        $element .= "< \ " . $name . ">";
+        $element .= "</" . $name . ">\n";
     }
     return $element;
 }
