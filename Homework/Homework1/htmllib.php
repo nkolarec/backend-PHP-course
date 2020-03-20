@@ -74,10 +74,10 @@ function end_body (): void {
  */
 function create_table ( $params ): void {
     $table = "<table";
-    foreach ($params as $attribute){
-        $table .= " " .  $attribute . "=" . $params[$attribute];
+    foreach ($params as $attribute => $value){
+        $table .= " " .  $attribute . "=" . $value;
     }
-    $table .= " >";
+    $table .= ">";
     echo $table;
 
 }
@@ -117,7 +117,7 @@ function create_table_row ( $params ): string {
     $row = "<tr";
     foreach ($params as $attribute => $value){
         if ($attribute === 'contents' and $value ==! null) {
-            $row .= " >\n";
+            $row .= " >";
             $contents_flag = true;
             foreach ($value as $cell){
                 $row .= create_table_cell($cell);
@@ -150,10 +150,21 @@ function create_table_row ( $params ): string {
  */
 function create_table_cell ( $params ): string {
     $cell = "<td";
+    $contents_flag = false;
     foreach ($params as $attribute => $value){
-        $cell .= " " . $attribute . "=" . $value;
+        if ($attribute === 'contents' and $value ==! null) {
+            $cell .= " >";
+            $contents_flag = true;
+            $cell .= $value;
+        }
+        else {
+            $cell .= " " . $attribute . "=" . $value;
+        }
     }
-    $cell .= "></td>";
+    if (!$contents_flag){
+        $cell .= ">";
+    }
+    $cell .= "</td>";
     return $cell;
 }
 

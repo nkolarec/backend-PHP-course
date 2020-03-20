@@ -5,12 +5,12 @@ require 'htmllib.php';
 /**
  * Funkcija koja vraća prvih $number Fibonaccijevih brojeva kao niz znakova
  * @param int $number broj Fibonaccijevih brojeva
- * @return string niz znakova prvih $number Fibonaccijevih brojeva
+ * @return string prvih $number Fibonaccijevih brojeva kao niz znakova
  */
 function fibonacci($number): string {
     $result = '0';
     for ( $i = 1; $i < $number; $i++){
-        $result .= ', ' . round(pow((sqrt(5)+1)/2, $i) / sqrt(5));
+        $result .= ', ' . round(pow((sqrt(5) + 1) / 2, $i) / sqrt(5));
     }
     return $result;
 }
@@ -18,7 +18,7 @@ function fibonacci($number): string {
 /**
  * Funkcija koja vraća prvih $number prostih brojeva
  * @param int $number broj prostih brojeva
- * @return string prvih $number prostih brojeva u tekstualnom zapisu
+ * @return string prvih $number prostih brojeva kao niz znakova
  */
 function prime_numbers($number): string {
     $result = '1';
@@ -34,7 +34,7 @@ function prime_numbers($number): string {
                 $div_count++;
             }
         }
-        if ($div_count<3)
+        if ($div_count < 3)
         {
             $result .= ", " . $num;
             $counter++;
@@ -72,17 +72,39 @@ $website_header1 = ['align' => 'center', 'contents' => 'Welcome!'];
 $website_header2 = ['align' => 'center', 'contents' => 'Number pi: '. pi_approximation()];
 $website_header3 = ['contents' => 'First 50 Fibonacci numbers:'];
 $website_header4 = ['contents' => 'First 100 prime numbers:'];
-$website_header5 = ['contents' => 'Matrix multiplying:'];
+$website_header5 = ['contents' => 'Matrix multiplication:'];
 $website_image =
     [
         'src' => 'https://lh3.googleusercontent.com/proxy/R1IYSC58tkZ-L2x4jfTm-QWfkS44SLE5aVtxVByIrHN51lV2CMAtMycHU7U2lKBeEqXmSbq4jaD4oIBbntZXBRvlgkjSqhlkXW3b1A80DgQ',
         'style' => 'width:600px;height:300px;'
     ];
-$website_link1 = ['href' => 'https://en.wikipedia.org/wiki/Fibonacci_number', 'contents' => 'Fibonacci number wiki'];
-$website_link2 = ['href' => 'https://en.wikipedia.org/wiki/Prime_number', 'contents' => 'Prime number wiki' ];
+$website_link1 =
+    [
+        'href' => 'https://en.wikipedia.org/wiki/Fibonacci_number',
+        'contents' => 'Fibonacci number wiki'
+    ];
+$website_link2 =
+    [
+        'href' => 'https://en.wikipedia.org/wiki/Prime_number',
+        'contents' => 'Prime number wiki'
+    ];
+$website_link3 =
+    [
+        'href' => 'https://en.wikipedia.org/wiki/Matrix_multiplication',
+        'contents' => 'Matrix multiplication wiki'
+    ];
 $website_paragraph1 = ['contents' => fibonacci(50)];
 $website_paragraph2 = ['contents' => prime_numbers(100)];
-$website_table = [];
+$website_table = ['align' => 'center', 'cellspacing' => '20'];
+$website_table_row =
+    [
+        'contents' =>
+        [
+            ['contents' => create_element("a", true, $website_link1)],
+            ['contents' => create_element("a", true, $website_link2)],
+            ['contents' => create_element("a", true, $website_link3)]
+        ]
+    ];
 
 /**
  * Generirani kod HTML stranice
@@ -95,12 +117,13 @@ end_head();
 begin_body($website_body);
 echo create_element("h1", true, $website_header1);
 echo create_element("h2", true, $website_header2);
+create_table($website_table);
+echo create_table_row($website_table_row);
+end_table();
 echo create_element("h3", true, $website_header3);
 echo create_element("p", true, $website_paragraph1);
-echo create_element("a", true, $website_link1);
 echo create_element("h4", true, $website_header4);
 echo create_element("p", true, $website_paragraph2);
-echo create_element("a", true, $website_link2);
 echo create_element("h5", true, $website_header5);
 echo create_element("img", true, $website_image);
 end_body();
