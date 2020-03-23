@@ -48,6 +48,10 @@ function end_head (): void {
  * @param array $params asocijativno polje
  * parova atribut = > vrijednost
  */
+
+/*
+za tijelo fje se koristi create_element funkcija
+*/
 function begin_body ( $params ): void {
     $body = "<body";
     foreach ($params as $attribute => $value){
@@ -72,6 +76,12 @@ function end_body (): void {
  * @param array $params polje parametara spremljenih
  * po principu ' atribut ' = > ' vrijednost '
  */
+
+/*
+za tijelo fje se koristi create_element funkcija
+
+što je s "contents" atributom?
+*/
 function create_table ( $params ): void {
     $table = "<table";
     foreach ($params as $attribute => $value){
@@ -112,6 +122,12 @@ function end_table (): void {
  * jedan redak tablice
  * @return string niz znakova koji predstavlja HTML kod retka tablice
  */
+
+/*
+za tijelo fje se koristi create_element funkcija
+
+ova funkcija bi trebala ispisivati tr i sadržaj elemenata pod ključem contents
+*/
 function create_table_row ( $params ): string {
     $contents_flag = false;
     $row = "<tr";
@@ -120,7 +136,7 @@ function create_table_row ( $params ): string {
             $row .= " >";
             $contents_flag = true;
             foreach ($value as $cell){
-                $row .= create_table_cell($cell);
+                $row .= create_table_cell($cell); //?
             }
         }
         else {
@@ -148,6 +164,12 @@ function create_table_row ( $params ): string {
  * @param array $params polje parametara koje odredjuje celiju
  * @return string  niz znakova koji odredjuje HTML kod celije
  */
+
+/*
+za tijelo fje se koristi create_element funkcija
+
+ova funkcija bi trebala ispisivati td i sadržaj elemenata pod ključem contents
+*/
 function create_table_cell ( $params ): string {
     $cell = "<td";
     $contents_flag = false;
@@ -190,6 +212,10 @@ function create_element ( $name , $closed = true , $params ): string {
     $contents_flag = false;
     $element = "<". $name;
     foreach ($params as $attribute => $value){
+        
+        //ako contents dođe kao ključ negdje u sredini, zatvorit će se tag i stvar neće ispravno funkcionirati
+        // dodavanje contents bi trbalo ići izvan petlje u kojoj se gradi tag i atributi
+        // nitko ne garantira poredak u listi
         if ($attribute === 'contents'){
             $contents_flag = true;
             $element .= ">" . $value;
