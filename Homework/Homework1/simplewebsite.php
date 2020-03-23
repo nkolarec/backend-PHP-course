@@ -7,6 +7,13 @@ require 'htmllib.php';
  * @param int $number broj Fibonaccijevih brojeva
  * @return string prvih $number Fibonaccijevih brojeva kao niz znakova
  */
+
+/*
+znam koja je bila namjera, ali ovo nema smisla kada se traži prvih n brojeva.
+uporaba ISPAVNE formule ima smisla kad se traži n. fibo broj
+
+dodatno, ova jednadžba nije ispravna
+*/
 function fibonacci($number): string {
     $result = '0';
     for ( $i = 1; $i < $number; $i++){
@@ -20,8 +27,18 @@ function fibonacci($number): string {
  * @param int $number broj prostih brojeva
  * @return string prvih $number prostih brojeva kao niz znakova
  */
+
+/*
+što akoi je $number negativan?
+
+ovo je jako velika složenost i čak nepotrebno dijeljenje s 1???
+
+pogledaj zašto se petlja može vrtjeti do sqrt($number) -> puno manja složenost!
+
+
+*/
 function prime_numbers($number): string {
-    $result = '1';
+    $result = '1'; // prikladnija struktura bi bila lista da se vraća lista intova
     $counter = 0;
     $num = 2;
     while ($counter < $number )
@@ -61,6 +78,8 @@ function pi_approximation(): string {
     }
     return $pi;
 }
+
+//množenje matrica???
 
 
 /**
