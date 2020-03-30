@@ -3,62 +3,46 @@
 require 'htmllib.php';
 
 /**
- * Funkcija koja vraća prvih $number Fibonaccijevih brojeva kao niz znakova
- * @param int $number broj Fibonaccijevih brojeva
- * @return string prvih $number Fibonaccijevih brojeva kao niz znakova
+ * Funkcija koja vraća prvih $n Fibonaccijevih brojeva kao niz znakova
+ * @param int $n broj Fibonaccijevih brojeva
+ * @return array prvih $n Fibonaccijevih brojeva kao niz integera
  */
-
-/*
-znam koja je bila namjera, ali ovo nema smisla kada se traži prvih n brojeva.
-uporaba ISPAVNE formule ima smisla kad se traži n. fibo broj
-
-dodatno, ova jednadžba nije ispravna
-*/
-function fibonacci($number): string {
-    $result = '0';
-    for ( $i = 1; $i < $number; $i++){
-        $result .= ', ' . round(pow((sqrt(5) + 1) / 2, $i) / sqrt(5));
+function fibonacci($n): array {
+    $fibonacci_numbers = array();
+    for ( $i = 0; $i < $n; $i++){
+        if($i == 0 or $i == 1) {
+            $fibonacci_numbers[$i] = $i;
+        }
+        else{
+            $fibonacci_numbers[$i] = $fibonacci_numbers[$i-1] + $fibonacci_numbers[$i-1];
+        }
     }
-    return $result;
+    return $fibonacci_numbers;
 }
 
 /**
- * Funkcija koja vraća prvih $number prostih brojeva
- * @param int $number broj prostih brojeva
- * @return string prvih $number prostih brojeva kao niz znakova
+ * Funkcija koja vraća prvih $n prostih brojeva
+ * @param int $n broj prostih brojeva
+ * @return array prvih $n prostih brojeva kao niz integera
  */
-
-/*
-što akoi je $number negativan?
-
-ovo je jako velika složenost i čak nepotrebno dijeljenje s 1???
-
-pogledaj zašto se petlja može vrtjeti do sqrt($number) -> puno manja složenost!
-
-
-*/
-function prime_numbers($number): string {
-    $result = '1'; // prikladnija struktura bi bila lista da se vraća lista intova
-    $counter = 0;
-    $num = 2;
-    while ($counter < $number )
-    {
-        $div_count = 0;
-        for ( $i = 1; $i <= $num; $i++)
-        {
-            if (($num % $i) === 0)
-            {
-                $div_count++;
+function prime_numbers($n): array {
+    $is_prime = true;
+    $prime = array();
+    $current_number = 2;
+    for ($i = 0; $i < $n; $i++) {
+        for( $j = 2; $j < sqrt($current_number); $j++){
+            if($current_number % 2 === 0) {
+                $is_prime = false;
+                break;
             }
         }
-        if ($div_count < 3)
-        {
-            $result .= ", " . $num;
-            $counter++;
+        if($is_prime){
+            $prime[$i] = $current_number;
         }
-        $num++;
+        $current_number++;
+        $is_prime = true;
     }
-    return $result;
+    return $prime;
 }
 
 /**
@@ -79,7 +63,9 @@ function pi_approximation(): string {
     return $pi;
 }
 
-//množenje matrica???
+function matrix_multiplying($matrix_1, $matrix_2): array {
+    return $matrix_1;
+}
 
 
 /**

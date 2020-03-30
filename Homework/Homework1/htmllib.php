@@ -53,12 +53,7 @@ function end_head (): void {
 za tijelo fje se koristi create_element funkcija
 */
 function begin_body ( $params ): void {
-    $body = "<body";
-    foreach ($params as $attribute => $value){
-        $body .= " " .  $attribute . "=" . $value;
-    }
-    $body .= " >";
-    echo $body;
+    echo create_element('body', false, $params);
 }
 
 /**
@@ -83,13 +78,7 @@ za tijelo fje se koristi create_element funkcija
 što je s "contents" atributom?
 */
 function create_table ( $params ): void {
-    $table = "<table";
-    foreach ($params as $attribute => $value){
-        $table .= " " .  $attribute . "=" . $value;
-    }
-    $table .= ">";
-    echo $table;
-
+    echo create_element('table', false, $params);
 }
 
 /**
@@ -129,25 +118,7 @@ za tijelo fje se koristi create_element funkcija
 ova funkcija bi trebala ispisivati tr i sadržaj elemenata pod ključem contents
 */
 function create_table_row ( $params ): string {
-    $contents_flag = false;
-    $row = "<tr";
-    foreach ($params as $attribute => $value){
-        if ($attribute === 'contents' and $value ==! null) {
-            $row .= " >";
-            $contents_flag = true;
-            foreach ($value as $cell){
-                $row .= create_table_cell($cell); //?
-            }
-        }
-        else {
-            $row .= " " . $attribute . "=" . $value;
-        }
-    }
-    if (!$contents_flag){
-        $row .= ">";
-    }
-    $row .= "</tr>";
-    return $row;
+    return create_element('tr',true, $params);
 }
 
 /**
@@ -171,23 +142,7 @@ za tijelo fje se koristi create_element funkcija
 ova funkcija bi trebala ispisivati td i sadržaj elemenata pod ključem contents
 */
 function create_table_cell ( $params ): string {
-    $cell = "<td";
-    $contents_flag = false;
-    foreach ($params as $attribute => $value){
-        if ($attribute === 'contents' and $value ==! null) {
-            $cell .= " >";
-            $contents_flag = true;
-            $cell .= $value;
-        }
-        else {
-            $cell .= " " . $attribute . "=" . $value;
-        }
-    }
-    if (!$contents_flag){
-        $cell .= ">";
-    }
-    $cell .= "</td>";
-    return $cell;
+    return create_element('td',true,  $params);
 }
 
 /**
@@ -212,22 +167,20 @@ function create_element ( $name , $closed = true , $params ): string {
     $contents_flag = false;
     $element = "<". $name;
     foreach ($params as $attribute => $value){
-        
-        //ako contents dođe kao ključ negdje u sredini, zatvorit će se tag i stvar neće ispravno funkcionirati
-        // dodavanje contents bi trbalo ići izvan petlje u kojoj se gradi tag i atributi
-        // nitko ne garantira poredak u listi
         if ($attribute === 'contents'){
             $contents_flag = true;
-            $element .= ">" . $value;
         }
         else {
             $element .= " " . $attribute . "=" . $value;
         }
     }
-    if(!$contents_flag){
-        $element .= ">";
+    $element .= ">";
+    if($contents_flag){
+        foreach($params['contents'] as $content){
+            $element .= $content;
+        }
     }
-    if($closed === true) {
+    if($closed) {
         $element .= "</" . $name . ">\n";
     }
     return $element;
