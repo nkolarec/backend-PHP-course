@@ -14,7 +14,7 @@ function fibonacci($n): array {
             $fibonacci_numbers[$i] = $i;
         }
         else{
-            $fibonacci_numbers[$i] = $fibonacci_numbers[$i-1] + $fibonacci_numbers[$i-1];
+            $fibonacci_numbers[$i] = $fibonacci_numbers[$i-1] + $fibonacci_numbers[$i-2];
         }
     }
     return $fibonacci_numbers;
@@ -63,8 +63,39 @@ function pi_approximation(): string {
     return $pi;
 }
 
-function matrix_multiplying($matrix_1, $matrix_2): array {
-    return $matrix_1;
+function matrix_multiplication($matrix_1, $matrix_2): array {
+    $matrix_1_columns = count($matrix_1);
+    $matrix_2_columns = count($matrix_2);
+    $matrix_1_rows = count($matrix_1[0]);
+    $matrix_2_rows = count($matrix_2[0]);
+
+    $flag_start_first_matrix = true;
+    $result = array();
+
+    if ($matrix_1_columns === $matrix_2_rows){
+        $result_columns = $matrix_1_columns;
+        $result_rows = $matrix_2_rows;
+        $flag_start_first_matrix = false;
+    } elseif ($matrix_2_columns === $matrix_1_rows){
+        $result_columns = $matrix_2_columns;
+        $result_rows = $matrix_1_rows;
+    } else {
+        return ['Matrices cannot be multiplied.'];
+    }
+
+    for ($i = 0; $i < $result_rows; $i++) {
+        for ($j = 0; $j < $result_columns; $j++) {
+            $result[$i][$j] = 0;
+            for ($k = 0; $k < $result_rows; $k++) {
+                if($flag_start_first_matrix){
+                    $result[$i][$j] += $matrix_1[$i][$k] * $matrix_2[$k][$j];
+                } else {
+                    $result[$i][$j] += $matrix_2[$i][$k] * $matrix_1[$k][$j];
+                }
+            }
+        }
+    }
+    return $result;
 }
 
 
