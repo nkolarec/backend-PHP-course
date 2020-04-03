@@ -109,17 +109,33 @@ $website_image =
 $website_link1 =
     [
         'href' => 'https://en.wikipedia.org/wiki/Fibonacci_number',
-        'contents' => 'Fibonacci number wiki'
+        'contents' => ['Fibonacci number wiki']
     ];
 $website_link2 =
     [
         'href' => 'https://en.wikipedia.org/wiki/Prime_number',
-        'contents' => 'Prime number wiki'
+        'contents' => ['Prime number wiki']
     ];
 $website_link3 =
     [
         'href' => 'https://en.wikipedia.org/wiki/Matrix_multiplication',
-        'contents' => 'Matrix multiplication wiki'
+        'contents' => ['Matrix multiplication wiki']
+    ];
+$website_links =
+    [
+        'align' => 'center',
+        'cellspacing' => '20',
+        'contents' =>
+            [
+                create_table_row
+                (['contents' =>
+                    [
+                        create_table_cell(['contents' => [create_element('a',true, $website_link1)]]),
+                        create_table_cell(['contents' => [create_element('a',true, $website_link2)]]),
+                        create_table_cell(['contents' => [create_element('a',true, $website_link3)]]),
+                    ]
+                ])
+            ]
     ];
 $website_paragraph1 = ['align' => 'left', 'contents' => fibonacci(50)];
 $website_paragraph2 = ['align' => 'left', 'contents' => prime_numbers(100)];
@@ -179,7 +195,6 @@ $website_table_matrix_2 =
                 ])
             ]
     ];
-$website_table_result = ['align' => 'left', 'border' => '1', 'cellspacing' => '20', 'contents' => matrix_multiplication($matrix_1, $matrix_2)];
 $website_table_operator =
     [
         'align' => 'left',
@@ -216,6 +231,8 @@ $website_table_equals =
                 create_table_row([])
             ]
     ];
+$website_table_result = ['align' => 'left', 'border' => '1', 'cellspacing' => '20', 'contents' => matrix_multiplication($matrix_1, $matrix_2)];
+
 /**
  * Generirani kod HTML stranice
  * */
@@ -226,6 +243,8 @@ echo create_element("title", true, $website_name);
 end_head();
 begin_body($website_body);
 echo create_element("img", true, $website_image);
+create_table($website_links);
+end_table();
 echo create_element("h2", true, $website_header2);
 echo create_element("h3", true, $website_header3);
 echo create_element("p", true, $website_paragraph1);
