@@ -1,5 +1,6 @@
 <?php
 
+declare (strict_types = 1);
 
 abstract class Automaton
 {
@@ -10,15 +11,12 @@ abstract class Automaton
     private static $map = [];
 
     /**
-    * Metoda provjerava podudara li se ulazni niz znakova s
-    * automatom .
-    * @param string $ulazni_niz_znakova
-    *
-    * @return true ako se niz podudara , false inace
-    */
-    public abstract function match( $input ) : bool {
-        return 'error';
-    }
+     * Metoda provjerava podudara li se ulazni niz znakova s
+     * automatom .
+     * @param $input
+     * @return true ako se niz podudara , false inace
+     */
+    public abstract function match($input) : bool;
 
     /**
     * Metoda na temelju definicije automata te ulaznih parametara
@@ -37,9 +35,7 @@ abstract class Automaton
     *
     * @return string generirani niz znakova
     */
-    public abstract function generate( array $array = []) : string {
-        return 'error';
-    }
+    public abstract function generate( array $array = []) : string;
 
     /**
     * Metoda za registraciju automata .
@@ -51,4 +47,19 @@ abstract class Automaton
     ( string $name , Automaton $automaton ) {
 // TODO
     }
+
+    /**
+    * Metoda vraca automat ili mapu automata .
+    * Ako je predano ime , vraca automat ili null .
+    * Ako je metoda pozvana bez parametara , vraca cijelu
+    * mapu automata .
+    * @param string $name
+    *
+    * @return null | Automaton | Automaton []
+    */
+    public static function get ( $name = null ): Automaton {
+
+    // TODO
+
+        }
 }
