@@ -176,6 +176,86 @@ function create_element ( $name , $closed = true , $params ): string {
     return $element;
 }
 
+/**
+* Generira tag < form > i dodjeljuje mu atribute action i
+* method s vrijednostima koje ovise o predanim parametrima
+*
+* @param string  $action relativna ili apsolutna putanja
+* do skrtipte za obradu obrasca
+* @param string $method GET ili POST
+*/
+
+function start_form ( $action , $method ): void {
+
+}
+
+/**
+* Ispisuje zatvarajuci tag </ form >
+*/
+
+function end_form (): void {
+
+}
+
+/**
+* Stvara polje za unos teksta pri cemu su atributi i njihove
+* vrijednosti odredjene predanim 2 D poljem parametara .
+* Struktura polja parametara :
+* array ( ' atribut ' = > ' vrijednost1 ',
+* ' atribut2 ' = > ' vrijednost2 ', ... ,
+* ' atributN ' = > ' vrijednostN ').
+*
+* @param  array  $params asocijativno polje parova oblika
+* atribut = > vrijednost
+* @return string niz znakova koji predstavlja generirani input tag
+*/
+
+function create_input ( $params ): string {
+
+}
+
+/**
+* Generira padajuci izbornik odredjen elementom select .
+* Predani parametri odredjuju atribute izbornika ( npr . name )
+* te opcije koje izbornik treba sadrzavati , a one se
+* predaju u preko kljuca ' contents '.
+* Polje ima sljedeci format :
+* array (
+* ' kljuc1 ' = > ' vrijednost1 ',
+* ...
+* ' kljucN ' = > ' vrijednostN '
+* ' contents ' = > array ( ' option1 ', ' option2 ', ... , ' optionM ')
+* )
+* Parametar contents odredjuje 1 D polje i da je svaki element
+* niz znakova . No , elementi nisu vrijednosti koje treba
+* ispisati kao opcije , nego <b > HTML k ^ od </ b > koji definira
+* svaku od opcija , npr . '< option >1 </ option > '
+*
+* @param  array  $params polje parametara koje odredjuje
+* padajuci izbornik
+* @return string niz znakova koji predstavlja generirani select tag
+*/
+
+function create_select ( $params ): string {
+
+}
+
+/**
+ * Stvara element button pomocu predanih parametara i vraca
+ * generirani niz tag . Sadrzaj gumba odredjuje parametar
+ * contents . Ako je njegova vrijednost jednaka praznom
+ * nizu znakova ili uopce nije poslan , sadrzaj treba
+ * biti prazan .
+ *
+ * @param  array  $params polje parametara koje odredjuje dugme
+ * @return string niz znakova koji predstavlja generirani tag button
+ */
+
+function create_button ( $params ): string {
+
+}
+
+
 
 
 
