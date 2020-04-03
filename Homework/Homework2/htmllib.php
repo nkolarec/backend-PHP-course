@@ -61,6 +61,7 @@ function begin_body ( $params ): void {
 /**
  * Ispisuje zatvarajuci tag </ body >
  */
+
 function end_body (): void {
     echo "</body>";
 }
@@ -81,6 +82,7 @@ function create_table ( $params ): void {
 /**
  * Ispisuje zatvarajuci tag </ table >
  */
+
 function end_table (): void {
     echo "</table>";
 }
@@ -128,7 +130,6 @@ function create_table_row ( $params ): string {
  * @return string  niz znakova koji odredjuje HTML kod celije
  */
 
-
 function create_table_cell ( $params ): string {
     return create_element('td',true,  $params);
 }
@@ -174,4 +175,10 @@ function create_element ( $name , $closed = true , $params ): string {
     }
     return $element;
 }
+
+
+
+
+
+
 
