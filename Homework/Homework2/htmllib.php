@@ -186,7 +186,7 @@ function create_element ( $name , $closed = true , $params ): string {
 */
 
 function start_form ( $action , $method ): void {
-
+    echo "<form action=" . $action . " method=" . $method . ">";
 }
 
 /**
@@ -194,7 +194,7 @@ function start_form ( $action , $method ): void {
 */
 
 function end_form (): void {
-
+    echo "</form>";
 }
 
 /**
@@ -211,7 +211,7 @@ function end_form (): void {
 */
 
 function create_input ( $params ): string {
-
+    create_element('input', false, $params);
 }
 
 /**
@@ -237,7 +237,7 @@ function create_input ( $params ): string {
 */
 
 function create_select ( $params ): string {
-
+    return create_element('div', true, $params);
 }
 
 /**
@@ -252,7 +252,7 @@ function create_select ( $params ): string {
  */
 
 function create_button ( $params ): string {
-
+    return create_element('button', true, $params);
 }
 
 
