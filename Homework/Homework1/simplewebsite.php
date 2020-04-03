@@ -1,5 +1,6 @@
 <?php
 
+declare (strict_types=1);
 require 'htmllib.php';
 
 /**
@@ -62,7 +63,7 @@ function pi_approximation(): string {
         }
         $bottom += 2;
     }
-    return $pi;
+    return strval($pi);
 }
 
 function matrix_multiplication($matrix_1, $matrix_2): array {

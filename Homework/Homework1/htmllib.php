@@ -1,5 +1,7 @@
 <?php
 
+declare (strict_types=1);
+
 /**
  * Uvijek ispisuje sadrzaj " <! doctype html > "
  * i koristi se kao prva naredba
