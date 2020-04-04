@@ -1,0 +1,41 @@
+# broj unutar viticastih zagrada oznacava o kojem tipu
+# pitanja se radi
+# 1 - pitanje koje ima samo jedan tocan odgovor
+# 2 - pitanje koje ima vise tocnih odgovora
+# 3 - pitanje na koje korisnik mora sam unijeti odgovor
+# format pitanja u kojem je tocan samo jedan odgovor
+{1}:=
+{1}:=
+{1}:=
+{1}:=
+{1}:=
+{1}:=
+{1}:=
+{1}:=
+{1}:=
+{1}:=
+{1}:=
+{1}:=
+# format pitanja u kojem je tocno vise odgovora
+{2}:=
+{2}:=
+{2}:=
+{2}:=
+{2}:=
+{2}:=
+{2}:=
+{2}:=
+{2}:=
+{2}:=
+{2}:=
+{2}:=
+# format pitanja u kojem korisnik mora sam unijeti odgovor
+# tocnost korisnikovog odgovora ne smije ovisiti o
+# koristenju malih i velikih slova ,
+# odnosno odgovori ` jedan 'i ` jEdAN ' moraju biti jednaki
+{3}:=
+{3}:=
+{3}:=
+{3}:=
+{3}:=
+{3}:=

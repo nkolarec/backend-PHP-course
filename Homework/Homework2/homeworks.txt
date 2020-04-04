@@ -1,0 +1,6 @@
+id_zadace ; id_korisnika ; ime_datoteke ; broj_bodova
+id_zadace - jedinstveni identifikator svake zadace
+id_korisnika - jedinstveni identifikator svakog korisnika
+ime_datoteke - ime datoteke predane domace zadace
+broj_bodova - decimalni broj bodova za zadacu
+\# - oznaka za komentar

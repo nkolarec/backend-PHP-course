@@ -1,0 +1,7 @@
+id_korisnika ; ime ; prezime ; email ; lozinka
+id_korisnika - jedinstveni identifikator svakog korisnika
+ime - ime korisnika
+prezime - prezime korisnika
+email - email korisnika
+lozinka - lozinka kriptirana na prikladan nacin
+\# - oznaka za komentar
