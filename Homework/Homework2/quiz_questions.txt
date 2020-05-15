@@ -3,20 +3,26 @@
 # 1 - pitanje koje ima samo jedan tocan odgovor
 # 2 - pitanje koje ima vise tocnih odgovora
 # 3 - pitanje na koje korisnik mora sam unijeti odgovor
+
 # format pitanja u kojem je tocan samo jedan odgovor
-{1}:=
-{1}:=
-{1}:=
-{1}:=
-{1}:=
-{1}:=
-{1}:=
-{1}:=
-{1}:=
-{1}:=
-{1}:=
-{1}:=
+
+What does PHP stand for? {1}: Personal Hypertext Processor, Private Home Page, PHP: Hypertext Preprocessor =PHP: Hypertext Preprocessor
+PHP server scripts are surrounded by delimiters, which? {1}: <&>...</&>,<?php>...</?>, <?php...?>, <script>...</script>  =<?php...?>
+All variables start with which symbol? {1}: $, &, ! =$
+What is the correct way to end a PHP statement? {1}: New line, ;, </php> =;
+The PHP syntax ist most similar to {1}: Java, Python, Perl and C =Perl and C
+In PHP you can use both single quotes and double quotes for strings. {1}: True, False =True
+Include files must have the file extension .inc. {1}: True, False =False
+What is the correct way to create a function in PHP? {1}: create myFunction(), new_function myFunction(), function myFunction() =function myFunction()
+When using the POST method, variables are displayed in the URL. {1}: True, False =False
+What is a correct way to add a comment in PHP? {1}: /?, /*...*/, *\...\*  =/*...*/
+In PHP, the only way to output text is with echo. {1}: True, False =False
+
 # format pitanja u kojem je tocno vise odgovora
+
+Which of the looping statements is/are supported by PHP? {2}: for loop, while loop, do-while loop, foreach loop =for loop, while loop, do-while loop, foreach loop
+Which of the looping statements is/are supported by PHP? {2}:=
+What is the correct way to add 1 to the $count variable? {2}:=
 {2}:=
 {2}:=
 {2}:=
@@ -26,16 +32,15 @@
 {2}:=
 {2}:=
 {2}:=
-{2}:=
-{2}:=
-{2}:=
+
 # format pitanja u kojem korisnik mora sam unijeti odgovor
 # tocnost korisnikovog odgovora ne smije ovisiti o
 # koristenju malih i velikih slova ,
 # odnosno odgovori ` jedan 'i ` jEdAN ' moraju biti jednaki
-{3}:=
-{3}:=
-{3}:=
+
+PHP’s numerically indexed array begin with position {3}:=0, zero
+Who is the father of PHP? {3}:=Rasmus Lerdorf
+PHP files have a default file extension of {3}:=.php
 {3}:=
 {3}:=
 {3}:=
