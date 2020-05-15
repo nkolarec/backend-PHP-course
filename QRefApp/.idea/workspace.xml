@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5d0b3497-1cb0-43d7-b97e-668327607ee6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Homework/Homework2/functions.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Homework/Homework3/Automaton/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Homework/Homework3/Automaton/.idea/Automaton.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Homework/Homework3/Automaton/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Homework/Homework3/Automaton/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Homework/Homework3/Automaton/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Homework/Homework3/Automaton/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Homework/Homework2/quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Homework/Homework2/quiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Homework/Homework2/quiz_questions.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Homework/Homework2/quiz_questions.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Homework/Homework2/quiz_score.php" beforeDir="false" afterPath="$PROJECT_DIR$/../Homework/Homework2/quiz_score.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="XAMPP PHP 7.2.28" />
+  <component name="ProjectId" id="1bwy8mfLWN15sb4xHOD61WhxGrY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/DatabaseContext" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d0b3497-1cb0-43d7-b97e-668327607ee6" name="Default Changelist" comment="" />
+      <created>1589557293176</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589557293176</updated>
+      <workItem from="1589557295305" duration="5000" />
+      <workItem from="1589562194748" duration="5000" />
+      <workItem from="1589562213433" duration="43000" />
+      <workItem from="1589562276299" duration="2247000" />
+      <workItem from="1589564709369" duration="29000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="386" y="85" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589563197801">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state x="386" y="85" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.801@0.23.1440.801" timestamp="1589563197801" />
+    <state x="309" y="23" key="CommitChangelistDialog2" timestamp="1589564737224">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state x="309" y="23" key="CommitChangelistDialog2/0.23.1440.801@0.23.1440.801" timestamp="1589564737224" />
+    <state width="233" height="457" key="HiddenNamespacesPopup" timestamp="1589562947791">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state width="233" height="457" key="HiddenNamespacesPopup/0.23.1440.801@0.23.1440.801" timestamp="1589562947791" />
+    <state x="461" y="177" key="NewPhpClassDialog" timestamp="1589564281513">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state x="461" y="177" key="NewPhpClassDialog/0.23.1440.801@0.23.1440.801" timestamp="1589564281513" />
+    <state x="624" y="375" key="NewPhpFileDialog" timestamp="1589564292850">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state x="624" y="375" key="NewPhpFileDialog/0.23.1440.801@0.23.1440.801" timestamp="1589564292850" />
+    <state x="503" y="80" width="600" height="729" key="find.popup" timestamp="1589564619108">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state x="503" y="80" width="600" height="729" key="find.popup/0.23.1440.801@0.23.1440.801" timestamp="1589564619108" />
+  </component>
+</project>
